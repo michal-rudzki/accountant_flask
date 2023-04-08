@@ -1,0 +1,8 @@
+{# templates/menu.html #}
+
+<nav>
+    {% for key, val in {"Strona główna": "index", "Historia":"history"}.items() %}
+        <a href="{{ url_for(val) }}">{{ key }}</a>
+    {% endfor %}
+    <hr>
+<nav>

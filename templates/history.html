@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>History page</h1>
+<table border=1>
+    <tr>
+        <td>
+            Data:
+        </td>
+        <td>
+            Nazwa operacji:
+        </td>
+        <tr>
+            {% for key, val in history.items() %}
+            <td>
+                {{ key }}
+            </td>
+            <td>
+                Operacja: {{ val[0] }}
+                <br>
+                {% for read_content in range(val[1]|length) %}
+                    {{ val[1][read_content] }}
+                {% endfor %}
+            </td>
+        </tr>
+            {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        {% include'menu.html' %}
+    </header>
+    {% block content %}
+        content.html
+    {% endblock %}
+
+</body>
+</html>
