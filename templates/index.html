@@ -12,6 +12,26 @@
         </td>
     </tr>
 </table>
+
+<h1>Magazyn</h1>
+<table border=1>
+    <tr>
+        <td>
+            <p>Nazwa
+        </td>
+        <td>
+            <p>Sztuk
+        </td>
+    </tr>
+    {% for items in magazyn %}
+    <tr>
+        <td>{{ items[0] }}</td>
+        <td>{{ items[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- form content -->
 <hr>
 <form action="" method="post">
     <label for="accountent">Wybierz rodzaj operacji:</label>
