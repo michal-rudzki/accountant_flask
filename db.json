@@ -1,14 +1,1 @@
-{
-    "saldo": {
-        "1000000": ["saldo wpłata początkowa"],
-        "-250000": ["zakup arduino"]
-    },
-    "sprzedaż": {},
-    "zakup": {},
-    "magazyn": {},
-    "historia": {
-        "2023-04-02 14:22": ["saldo", [1000000, "wpłata początkowa"]],
-        "2023-03-14 10:22": ["zakup", ["arduino", 2500, 12]],
-        "2023-03-15 14:33": ["sprzedaż", ["arduino", 650, 2]]
-    }
-}
+{"saldo": {"1000000": ["saldo wp\u0142ata pocz\u0105tkowa"], "-250000": ["zakup arduino"]}, "sprzeda\u017c": {}, "zakup": {}, "magazyn": {"arduino": 12, "raspberry": 12, "myszka": 10, "dddd": 12.0}, "historia": {"2023-04-02 14:22": ["saldo", [1000000, "wp\u0142ata pocz\u0105tkowa"]], "2023-03-14 10:22": ["zakup", ["arduino", 2500, 12]], "2023-03-15 14:33": ["sprzeda\u017c", ["arduino", 650, 2]]}}
