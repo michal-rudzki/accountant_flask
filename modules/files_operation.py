@@ -13,7 +13,7 @@ class VaultDB:
     
     def openFileToSave(self, db):
         with open(self.db_file, mode='w', encoding='utf-8') as filedb:
-            json.dump(db, filedb)
+            json.dump(db, filedb, ensure_ascii=False, indent=4)
 
 class Warehouse(VaultDB):
     

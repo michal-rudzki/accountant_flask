@@ -10,13 +10,13 @@ from modules.files_operation import VaultDB, Warehouse
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     title = "Witaj"
-    #db = VaultDB(FILEDB)
-    #file_db = db.openFile()
     db = Warehouse(FILEDB)
     file_db = db.openFileToRead()
+    
+    print(file_db['magazyn'])
     
     saldo = sum([int(s) for s in file_db['saldo'].keys()])
     magazyn = [(k, v) for k,v in file_db['magazyn'].items()]
@@ -25,8 +25,19 @@ def index():
     name = request.form.get('name')
     quantity = request.form.get('quantity')
     prize = request.form.get('prize')
+
+    if operation == 'purchase':
+        print(operation, name, quantity, prize)
+        db.addItem(file_db, name, int(quantity))
+        magazyn.append((name, int(quantity)))
+        return render_template('index.html', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
     
-    return render_template('index.html', title=title, db=db, file_db=file_db, saldo=saldo, magazyn=magazyn)
+    if operation == 'sale':
+        print(operation, name, quantity, prize)
+        # pobrać name z file_db i sprawdzić ilość
+        # return redirect(url_for('index', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize))
+    
+    return render_template('index.html', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
 
 @app.route('/zakup/', methods=['GET', 'POST'])
 def zakup():
@@ -46,7 +57,7 @@ def zakup():
     
     db.addItem(file_db, item, quantity)
     
-    return {'sukcess': True, 'msg:': f'Item: {item}, Quantity: {quantity}'}
+    return {'sukcess': True, 'msg:': f'Item: {item}, Quantity: {int(quantity)}'}
 
 @app.route('/history/')
 def history():
@@ -59,4 +70,6 @@ def history():
 
 if __name__ == "__main__":
     app.config['JSON_AS_ASCII'] = False
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.jinja_env.auto_reload = True
     app.run(debug=True)
