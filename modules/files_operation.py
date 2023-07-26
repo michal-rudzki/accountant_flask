@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from modules.myglobal import FILEDB
 
 class VaultDB:
@@ -25,6 +26,14 @@ class Warehouse(VaultDB):
         
     def addItem(self, file_db, item, quantity):
         file_db['magazyn'].update({item: quantity})
+        self.openFileToSave(file_db)
+    
+    def updateHistory(self, file_db, operation, item, prize, quantity):
+        dateTime = datetime.now()
+        """https://strftime.org/"""
+        formattedTime = dateTime.strftime("%A %d, %B %Y %X")
+        
+        file_db['historia'].update({formattedTime: {operation: {item: [float(prize), int(quantity)]}}})
         self.openFileToSave(file_db)
     
     def checkItem(self, item):
