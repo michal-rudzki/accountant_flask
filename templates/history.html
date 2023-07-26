@@ -8,7 +8,16 @@
             Data:
         </td>
         <td>
-            Nazwa operacji:
+            Typ operacji:
+        </td>
+        <td>
+            Nazwa towaru:
+        </td>
+        <td>
+            Sztuk:
+        </td>
+        <td>
+            Cena:
         </td>
         <tr>
             {% for key, val in history.items() %}
@@ -16,13 +25,23 @@
                 {{ key }}
             </td>
             <td>
-                Operacja: {{ val[0] }}
-                <br>
-                {% for read_content in range(val[1]|length) %}
-                    {{ val[1][read_content] }}
-                {% endfor %}
+                {% for op, val in val.items() %}
+                    {{ op }}
             </td>
+            <td>
+                    {% for item, quantity_prize in val.items() %}
+                        {{ item }}
+            </td>
+            <td>
+                        {{ quantity_prize[1] }}
+            </td>
+            <td>
+                        {{ quantity_prize[0] }} PLN
+            </td>
+                    {% endfor %}
+                {% endfor %}
         </tr>
             {% endfor %}
+    </tr>
 </table>
 {% endblock %}
