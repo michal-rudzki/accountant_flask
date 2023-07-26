@@ -29,6 +29,7 @@ def index():
     if operation == 'purchase':
         print(operation, name, quantity, prize)
         db.addItem(file_db, name, int(quantity))
+        db.updateHistory(file_db, operation, name, prize, quantity)
         magazyn.append((name, int(quantity)))
         return render_template('index.html', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
     
