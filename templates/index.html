@@ -23,10 +23,10 @@
             <p>Sztuk
         </td>
     </tr>
-    {% for items in magazyn %}
+    {% for key, value in magazyn.items() %}
     <tr>
-        <td>{{ items[0] }}</td>
-        <td>{{ items[1] }}</td>
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
     </tr>
     {% endfor %}
 </table>
@@ -50,6 +50,17 @@
     <input type="number" id="prize" name="prize" min=0><br><br>
 
     <input type="submit" value="zatwierdź">
+</form>
+
+<hr>
+
+<form method="post" action="">
+<label for="saldo_change">Zmiana salda:</label>
+<input type="hidden" name="saldo_change" value="saldo_change"/>
+<input type="number" name="new_saldo" value=0 min=0>
+<label for="saldo_check">Potwierdź:</label>
+<input type="checkbox" name="saldo_check"><br><br>
+<input type="submit" value="zatwierdź">
 </form>
 
 {% endblock %}
