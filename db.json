@@ -1,22 +1,28 @@
 {
     "saldo": {
-        "1000000": [
-            "saldo wpłata początkowa"
-        ],
-        "-250000": [
-            "zakup arduino"
+        "Monday 07, August 2023 16:54:31": [
+            123000,
+            "zerowanie salda - próba oszustwa"
         ]
     },
-    "sprzedaż": {},
+    "sprzedaż": {
+        "Wednesday": {
+            "arduino": [
+                12,
+                222
+            ]
+        }
+    },
     "zakup": {},
     "magazyn": {
         "arduino": 12,
         "raspberry": 12,
         "myszka": 10,
-        "żarówka": 20,
-        "marchewka": 33,
-        "ee": 22,
-        "gumka": 100
+        "żarówka": 157,
+        "marchewka": 267,
+        "gumka": 123,
+        "moniotr": 12,
+        "boo": 24
     },
     "historia": {
         "Wednesday 26, July 2023 15:16:59": {
@@ -32,6 +38,166 @@
                 "marchewka": [
                     13.0,
                     33
+                ]
+            }
+        },
+        "Wednesday 26, July 2023 19:51:51": {
+            "purchase": {
+                "dd": [
+                    66.0,
+                    1
+                ]
+            }
+        },
+        "Wednesday 26, July 2023 20:10:13": {
+            "purchase": {
+                "fdgfgdsf": [
+                    100.0,
+                    1
+                ]
+            }
+        },
+        "Wednesday 26, July 2023 20:11:12": {
+            "purchase": {
+                "chomikuj.pl": [
+                    123.0,
+                    1
+                ]
+            }
+        },
+        "Monday 07, August 2023 14:53:05": {
+            "purchase": {
+                "żarówka": [
+                    123.0,
+                    22
+                ]
+            }
+        },
+        "Monday 07, August 2023 14:56:58": {
+            "purchase": {
+                "dsfgsdfg": [
+                    234.0,
+                    22
+                ]
+            }
+        },
+        "Monday 07, August 2023 15:19:14": {
+            "purchase": {
+                "żarówka": [
+                    123.0,
+                    123
+                ]
+            }
+        },
+        "Monday 07, August 2023 15:31:01": {
+            "purchase": {
+                "marchewka": [
+                    123.0,
+                    22
+                ]
+            }
+        },
+        "Monday 07, August 2023 15:32:16": {
+            "purchase": {
+                "marchewka": [
+                    123.0,
+                    45
+                ]
+            }
+        },
+        "Monday 07, August 2023 15:33:02": {
+            "purchase": {
+                "marchewka": [
+                    123.0,
+                    44
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:02:07": {
+            "purchase": {
+                "gumka": [
+                    234.0,
+                    23
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:02:35": {
+            "purchase": {
+                "ee": [
+                    123.0,
+                    22
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:03:11": {
+            "purchase": {
+                "sdrfgsdfgdfg": [
+                    123123.0,
+                    123
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:05:03": {
+            "purchase": {
+                "uuuu": [
+                    12.0,
+                    234
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:05:38": {
+            "purchase": {
+                "moniotr": [
+                    12.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:06:25": {
+            "purchase": {
+                "dfgsdfg": [
+                    123.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:08:10": {
+            "purchase": {
+                "sdfsdfsdf": [
+                    12.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:31:28": {
+            "purchase": {
+                "boo": [
+                    12.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:32:27": {
+            "purchase": {
+                "boo": [
+                    12.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:54:09": {
+            "purchase": {
+                "żarówka": [
+                    123.0,
+                    12
+                ]
+            }
+        },
+        "Monday 07, August 2023 16:54:19": {
+            "purchase": {
+                "marchewka": [
+                    123.0,
+                    123
                 ]
             }
         }
