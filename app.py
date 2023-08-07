@@ -16,21 +16,33 @@ def index():
     db = Warehouse(FILEDB)
     file_db = db.openFileToRead()
     
-    print(file_db['magazyn'])
+    saldo_count = []
+    for k, v in file_db['saldo'].items():
+        saldo_count.append(v[0])
+    #saldo = sum([int(s) for s in file_db['saldo'].keys()])
+    saldo = sum(saldo_count)
     
-    saldo = sum([int(s) for s in file_db['saldo'].keys()])
-    magazyn = [(k, v) for k,v in file_db['magazyn'].items()]
+    #magazyn = [(k, v) for k,v in file_db['magazyn'].items()]
+    magazyn = {key:value for key, value in file_db['magazyn'].items()} 
 
     operation = request.form.get('accountent')
+    saldo_change = request.form.get('saldo_change')
+    saldo_check = request.form.get('saldo_check')
+    
+    new_saldo = request.form.get('new_saldo')
     name = request.form.get('name')
     quantity = request.form.get('quantity')
     prize = request.form.get('prize')
-
+    
     if operation == 'purchase':
-        print(operation, name, quantity, prize)
-        db.addItem(file_db, name, int(quantity))
+        magazyn = db.addItemToWarehouse(file_db, name, int(quantity))
         db.updateHistory(file_db, operation, name, prize, quantity)
-        magazyn.append((name, int(quantity)))
+        
+        #if db.checkItem(file_db, name) is True:
+        #    magazyn[name] += int(quantity)
+        #else:
+        #    magazyn.update({name, int(quantity)})
+            
         return render_template('index.html', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
     
     if operation == 'sale':
@@ -38,7 +50,14 @@ def index():
         # pobrać name z file_db i sprawdzić ilość
         # return redirect(url_for('index', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize))
     
-    return render_template('index.html', accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
+    # wyzerować saldo w pliku db.json
+    # podmienić wartość: saldo = new_saldo
+    if saldo_change == 'saldo_change' and saldo_check == 'on':
+        saldo = int(new_saldo)
+        db.setSaldo(file_db, new_saldo)
+        print(saldo_check)
+
+    return render_template('index.html', saldo_check=saldo_check, saldo_change=saldo_change, accountent=operation, title=title, saldo=saldo, magazyn=magazyn, name=name, quantity=quantity, prize=prize)
 
 @app.route('/zakup/', methods=['GET', 'POST'])
 def zakup():
